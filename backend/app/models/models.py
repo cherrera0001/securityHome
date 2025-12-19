@@ -56,7 +56,7 @@ class User(Base):
 
     # Relaciones
     videos = relationship("Video", back_populates="user", cascade="all, delete-orphan")
-    alerts = relationship("Alert", back_populates="user", cascade="all, delete-orphan")
+    alerts = relationship("Alert", foreign_keys="Alert.user_id", back_populates="user", cascade="all, delete-orphan")
 
 
 class Video(Base):
@@ -327,7 +327,7 @@ class Alert(Base):
     alert_type = Column(String(100))  # "face_match", "weapon_detected", "poi_detected", etc.
     
     # Metadata
-    metadata = Column(JSONB)
+    alert_metadata = Column(JSONB)
     
     # Estado
     is_read = Column(Boolean, default=False)
@@ -339,6 +339,7 @@ class Alert(Base):
     
     # Relaciones
     user = relationship("User", foreign_keys=[user_id], back_populates="alerts")
+    resolver = relationship("User", foreign_keys=[resolved_by])
 
     __table_args__ = (
         Index('idx_alert_user_status', 'user_id', 'is_read'),

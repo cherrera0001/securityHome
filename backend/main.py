@@ -22,11 +22,11 @@ from app.models.models import (
     User, Video, FaceEmbedding, ChainOfCustody, Alert, 
     ForensicReport, ProcessingTask, UserRole, VideoStatus, AlertLevel
 )
-from app.services.video_service import VideoService
-from app.services.storage_service import StorageService
-from app.services.forensic_service import ForensicService
-from app.workers.celery_app import celery_app
-from app.workers.tasks import process_video_task
+# from app.services.video_service import VideoService
+# from app.services.storage_service import StorageService
+# from app.services.forensic_service import ForensicService
+# from app.workers.celery_app import celery_app
+# from app.workers.tasks import process_video_task
 
 # Inicializar FastAPI
 app = FastAPI(

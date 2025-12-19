@@ -15,12 +15,12 @@ class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"
     
     # Base de datos PostgreSQL
-    DATABASE_URL: str = "postgresql://forensic:forensic_pass@postgres:5432/forensic_db"
+    DATABASE_URL: str = "postgresql://forensic:forensic_pass@localhost:5432/forensic_db"
     
     # Redis para Celery
-    REDIS_URL: str = "redis://redis:6379/0"
-    CELERY_BROKER_URL: str = "redis://redis:6379/1"
-    CELERY_RESULT_BACKEND: str = "redis://redis:6379/2"
+    REDIS_URL: str = "redis://localhost:6379/0"
+    CELERY_BROKER_URL: str = "redis://localhost:6379/1"
+    CELERY_RESULT_BACKEND: str = "redis://localhost:6379/2"
     
     # Seguridad JWT
     SECRET_KEY: str = "your-super-secret-key-change-in-production-2024"

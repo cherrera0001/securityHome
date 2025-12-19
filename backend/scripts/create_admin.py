@@ -30,7 +30,7 @@ def create_admin_user():
         
         # Crear admin
         admin = User(
-            email="admin@forensicvideo.ai",
+            email="admin@forensicvideo.com",
             username="admin",
             hashed_password=AuthService.get_password_hash("admin123"),  # CAMBIAR EN PRODUCCIÓN
             full_name="System Administrator",
